@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blind Timer Game</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="game-container">
+    <!-- Title/Menu Screen -->
+    <div id="screen-idle" class="screen active">
+      <h1>Blind Timer</h1>
+      <p class="subtitle">Stop the invisible timer as close to the target as possible!</p>
+      <div class="menu-buttons">
+        <button id="btn-start-game" class="btn btn-primary">Start Game</button>
+        <button id="btn-show-hiscores" class="btn btn-secondary">Hi-Scores</button>
+      </div>
+    </div>
+
+    <!-- Round Ready Screen -->
+    <div id="screen-round-ready" class="screen">
+      <p class="round-indicator">Round <span id="current-round">1</span> of <span id="total-rounds">5</span></p>
+      <p class="instruction">Stop the timer at:</p>
+      <p class="target-time"><span id="target-time">5.0</span><span class="unit">s</span></p>
+      <button id="btn-start-timer" class="btn btn-primary btn-large">Start</button>
+    </div>
+
+    <!-- Timer Running Screen -->
+    <div id="screen-timer-running" class="screen">
+      <p class="round-indicator">Round <span id="running-round">1</span> of <span id="running-total">5</span></p>
+      <p class="instruction">Target: <span id="running-target">5.0</span>s</p>
+      <div class="pulse-indicator"></div>
+      <button id="btn-stop-timer" class="btn btn-danger btn-large">Stop!</button>
+    </div>
+
+    <!-- Round Result Screen -->
+    <div id="screen-round-result" class="screen">
+      <h2>Round <span id="result-round">1</span> Result</h2>
+      <div class="result-details">
+        <div class="result-row">
+          <span class="label">Target:</span>
+          <span id="result-target" class="value">5.0s</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Your time:</span>
+          <span id="result-elapsed" class="value">4.8s</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Difference:</span>
+          <span id="result-difference" class="value difference">-0.2s</span>
+        </div>
+      </div>
+      <p class="round-score">+<span id="result-score">960</span> points</p>
+      <button id="btn-continue" class="btn btn-primary">Continue</button>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="screen-game-over" class="screen">
+      <h2>Game Over!</h2>
+      <p class="final-score">Final Score: <span id="final-score">4250</span></p>
+      <div id="round-breakdown" class="round-breakdown"></div>
+      <div id="hiscore-entry" class="hiscore-entry hidden">
+        <p>New High Score!</p>
+        <input type="text" id="player-name" maxlength="10" placeholder="Enter name">
+        <button id="btn-save-score" class="btn btn-primary">Save</button>
+      </div>
+      <div class="menu-buttons">
+        <button id="btn-play-again" class="btn btn-primary">Play Again</button>
+        <button id="btn-back-menu" class="btn btn-secondary">Main Menu</button>
+      </div>
+    </div>
+
+    <!-- Hi-Scores Screen -->
+    <div id="screen-hiscores" class="screen">
+      <h2>Hi-Scores</h2>
+      <div id="hiscore-list" class="hiscore-list">
+        <p class="no-scores">No scores yet!</p>
+      </div>
+      <button id="btn-back-from-hiscores" class="btn btn-secondary">Back</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
