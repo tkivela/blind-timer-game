@@ -1,0 +1,22 @@
+{
+  "name": "blind-timer-game",
+  "version": "1.0.0",
+  "description": "A browser-based timing game where players try to stop an invisible timer",
+  "type": "module",
+  "scripts": {
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check .",
+    "test": "node --test tests/"
+  },
+  "keywords": [
+    "game",
+    "timer",
+    "javascript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@biomejs/biome": "2.3.8"
+  }
+}
