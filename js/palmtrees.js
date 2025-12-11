@@ -10,7 +10,9 @@ export function initPalmTrees() {
     const xPos =
       30 + (340 / (treeCount + 1)) * (i + 1) + (Math.random() - 0.5) * 40;
     const scale = 0.7 + Math.random() * 0.4; // Height variation (0.7 to 1.1)
-    const yBase = 270 + (1 - scale) * 20; // Taller trees slightly higher on ground
+    // Base y position at ground level (around 285-290 where ground visually starts)
+    // All trees should have roots at the same ground level regardless of scale
+    const yBase = 288;
     const swayDuration = 3 + Math.random() * 2; // 3-5 seconds
     const swayDelay = Math.random() * -5; // Random start offset
 

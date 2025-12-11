@@ -172,9 +172,10 @@ h2 {
 }
 
 .subtitle {
-  color: #888;
+  color: #bbb;
   margin-bottom: 40px;
   font-size: 1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .btn {
@@ -276,6 +277,13 @@ h2 {
 .target-time .unit {
   font-size: 2rem;
   color: #888;
+}
+
+.warning-note {
+  color: #ff6b81;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
 }
 
 .chaos-indicator {
