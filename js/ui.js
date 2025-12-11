@@ -122,3 +122,64 @@ function escapeHtml(text) {
   div.textContent = text;
   return div.innerHTML;
 }
+
+// Chaos indicator - unpredictable visual that can't be used for timing
+const chaosSymbols = [
+  "⏱️",
+  "⚡",
+  "🎯",
+  "🔥",
+  "💫",
+  "✨",
+  "🌀",
+  "💥",
+  "🎲",
+  "⭐",
+  "🌟",
+  "❓",
+  "❗",
+  "🔮",
+  "🎪",
+];
+
+let chaosIntervalId = null;
+
+function getRandomSymbol() {
+  return chaosSymbols[Math.floor(Math.random() * chaosSymbols.length)];
+}
+
+function getRandomInterval() {
+  // Random interval between 50ms and 400ms - unpredictable
+  return 50 + Math.random() * 350;
+}
+
+function updateChaosIndicator() {
+  const el = document.getElementById("chaos-indicator");
+  if (el) {
+    el.textContent = getRandomSymbol();
+  }
+}
+
+function scheduleNextChaos() {
+  chaosIntervalId = setTimeout(() => {
+    updateChaosIndicator();
+    scheduleNextChaos();
+  }, getRandomInterval());
+}
+
+export function startChaosIndicator() {
+  stopChaosIndicator();
+  updateChaosIndicator();
+  scheduleNextChaos();
+}
+
+export function stopChaosIndicator() {
+  if (chaosIntervalId !== null) {
+    clearTimeout(chaosIntervalId);
+    chaosIntervalId = null;
+  }
+  const el = document.getElementById("chaos-indicator");
+  if (el) {
+    el.textContent = "";
+  }
+}

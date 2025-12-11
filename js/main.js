@@ -24,6 +24,8 @@ import {
   getPlayerName,
   showGameState,
   showHiScoresScreen,
+  startChaosIndicator,
+  stopChaosIndicator,
   updateGameOver,
   updateHiScores,
   updateRoundReady,
@@ -95,10 +97,12 @@ function handleStartGame() {
 function handleStartTimer() {
   timer.start();
   gameState = startTimer(gameState, performance.now());
+  startChaosIndicator();
   render();
 }
 
 function handleStopTimer() {
+  stopChaosIndicator();
   const elapsed = timer.stop();
   const score = calculateScore(
     gameState.targetTime,
