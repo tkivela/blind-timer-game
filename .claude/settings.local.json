@@ -8,7 +8,9 @@
       "Bash(npm run format:*)",
       "WebSearch",
       "WebFetch(domain:freesvg.org)",
-      "WebFetch(domain:gardeningsolutions.ifas.ufl.edu)"
+      "WebFetch(domain:gardeningsolutions.ifas.ufl.edu)",
+      "Bash(gh auth status:*)",
+      "Bash(git push:*)"
     ]
   }
 }
