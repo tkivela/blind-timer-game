@@ -241,11 +241,14 @@ export function startRound(state, targetTime) {
 2. Add animations (pulse, shake)
 3. Mobile responsive design
 
-### Phase 5: Polish & Deploy
+### Phase 5: Polish
 1. Add keyboard support (Space bar)
 2. Run Biome lint/format
 3. Final testing
-4. Push to GitHub, enable Pages
+
+### Phase 6: Deploy
+1. Push to GitHub
+2. Enable GitHub Pages
 
 ---
 
