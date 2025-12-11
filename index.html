@@ -7,14 +7,81 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Animated Palm Tree Background -->
+  <div id="palm-background" class="palm-background">
+    <svg class="palm-scene" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice">
+      <defs>
+        <!-- Palm tree template -->
+        <g id="palm-tree">
+          <!-- Trunk -->
+          <path class="trunk" d="M0,0 C2,-30 -2,-60 0,-90 C-2,-120 2,-150 0,-180"
+                fill="none" stroke="#8B5A2B" stroke-width="8" stroke-linecap="round"/>
+          <!-- Trunk texture lines -->
+          <path class="trunk-lines" d="M-3,-20 h6 M-3,-45 h6 M-3,-70 h6 M-3,-95 h6 M-3,-120 h6 M-3,-145 h6"
+                fill="none" stroke="#6B4423" stroke-width="1.5"/>
+          <!-- Fronds -->
+          <g class="fronds">
+            <path class="frond" d="M0,-180 C-20,-200 -60,-195 -80,-170 C-60,-175 -30,-180 0,-180" fill="#228B22"/>
+            <path class="frond" d="M0,-180 C-15,-210 -50,-220 -70,-200 C-45,-205 -20,-195 0,-180" fill="#2E8B2E"/>
+            <path class="frond" d="M0,-180 C0,-215 -20,-240 -40,-230 C-20,-225 -5,-200 0,-180" fill="#228B22"/>
+            <path class="frond" d="M0,-180 C15,-210 50,-220 70,-200 C45,-205 20,-195 0,-180" fill="#2E8B2E"/>
+            <path class="frond" d="M0,-180 C20,-200 60,-195 80,-170 C60,-175 30,-180 0,-180" fill="#228B22"/>
+            <path class="frond" d="M0,-180 C0,-215 20,-240 40,-230 C20,-225 5,-200 0,-180" fill="#2E8B2E"/>
+            <!-- Coconuts -->
+            <circle cx="-5" cy="-175" r="5" fill="#8B4513"/>
+            <circle cx="5" cy="-172" r="5" fill="#8B4513"/>
+            <circle cx="0" cy="-168" r="4" fill="#6B3410"/>
+          </g>
+        </g>
+
+        <!-- Ground gradient -->
+        <linearGradient id="ground-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#3d2914"/>
+          <stop offset="30%" stop-color="#5c4021"/>
+          <stop offset="100%" stop-color="#2a1a0a"/>
+        </linearGradient>
+
+        <!-- Sand texture pattern -->
+        <pattern id="sand-texture" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+          <rect width="20" height="20" fill="#5c4021"/>
+          <circle cx="3" cy="5" r="1" fill="#6b4c28" opacity="0.5"/>
+          <circle cx="12" cy="3" r="0.8" fill="#4a3318" opacity="0.4"/>
+          <circle cx="7" cy="12" r="1.2" fill="#6b4c28" opacity="0.3"/>
+          <circle cx="16" cy="15" r="0.7" fill="#4a3318" opacity="0.5"/>
+          <circle cx="2" cy="18" r="0.9" fill="#6b4c28" opacity="0.4"/>
+        </pattern>
+      </defs>
+
+      <!-- Sky gradient background -->
+      <rect x="0" y="0" width="400" height="260" fill="url(#sky-gradient)"/>
+
+      <!-- Ground/soil -->
+      <ellipse cx="200" cy="320" rx="250" ry="80" fill="url(#ground-gradient)"/>
+      <ellipse cx="200" cy="310" rx="240" ry="60" fill="url(#sand-texture)"/>
+
+      <!-- Grass tufts on ground -->
+      <g class="grass">
+        <path d="M50,265 Q52,250 48,265 Q50,248 52,265 Q54,252 56,265" fill="none" stroke="#355E3B" stroke-width="2"/>
+        <path d="M120,270 Q122,255 118,270 Q120,253 122,270" fill="none" stroke="#2E8B2E" stroke-width="2"/>
+        <path d="M280,268 Q282,253 278,268 Q280,251 282,268 Q284,255 286,268" fill="none" stroke="#355E3B" stroke-width="2"/>
+        <path d="M350,272 Q352,260 348,272 Q350,258 352,272" fill="none" stroke="#2E8B2E" stroke-width="2"/>
+      </g>
+
+      <!-- Palm trees will be inserted here by JavaScript -->
+      <g id="palm-trees"></g>
+    </svg>
+  </div>
+
   <div id="game-container">
     <!-- Title/Menu Screen -->
     <div id="screen-idle" class="screen active">
-      <h1>Blind Timer</h1>
-      <p class="subtitle">Stop the invisible timer as close to the target as possible!</p>
-      <div class="menu-buttons">
-        <button id="btn-start-game" class="btn btn-primary">Start Game</button>
-        <button id="btn-show-hiscores" class="btn btn-secondary">Hi-Scores</button>
+      <div class="title-content">
+        <h1>Blind Timer</h1>
+        <p class="subtitle">Stop the invisible timer as close to the target as possible!</p>
+        <div class="menu-buttons">
+          <button id="btn-start-game" class="btn btn-primary">Start Game</button>
+          <button id="btn-show-hiscores" class="btn btn-secondary">Hi-Scores</button>
+        </div>
       </div>
     </div>
 

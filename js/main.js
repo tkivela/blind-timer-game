@@ -1,5 +1,10 @@
 import { DEFAULT_CONFIG, generateTargetTime } from "./config.js";
 import {
+  hidePalmBackground,
+  initPalmTrees,
+  showPalmBackground,
+} from "./palmtrees.js";
+import {
   calculateScore,
   calculateTotalScore,
   getRoundSummary,
@@ -32,6 +37,13 @@ const timer = createTimer();
 
 function render() {
   showGameState(gameState.currentState);
+
+  // Show palm background only on idle screen
+  if (gameState.currentState === GameState.IDLE) {
+    showPalmBackground();
+  } else {
+    hidePalmBackground();
+  }
 
   switch (gameState.currentState) {
     case GameState.ROUND_READY:
@@ -151,6 +163,9 @@ function handleKeyDown(event) {
 }
 
 function init() {
+  // Initialize palm tree background
+  initPalmTrees();
+
   document
     .getElementById("btn-start-game")
     .addEventListener("click", handleStartGame);

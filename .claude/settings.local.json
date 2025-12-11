@@ -5,7 +5,10 @@
       "Bash(npm test)",
       "Bash(npm run check:*)",
       "Bash(npx biome:*)",
-      "Bash(npm run format:*)"
+      "Bash(npm run format:*)",
+      "WebSearch",
+      "WebFetch(domain:freesvg.org)",
+      "WebFetch(domain:gardeningsolutions.ifas.ufl.edu)"
     ]
   }
 }
