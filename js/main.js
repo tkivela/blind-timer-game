@@ -4,6 +4,7 @@ import {
   initPalmTrees,
   showPalmBackground,
 } from "./palmtrees.js";
+import { startPeekingOnIdle, stopPeeking } from "./peekinganimal.js";
 import {
   calculateScore,
   calculateTotalScore,
@@ -40,11 +41,13 @@ const timer = createTimer();
 function render() {
   showGameState(gameState.currentState);
 
-  // Show palm background only on idle screen
+  // Show palm background and enable peeking animal only on idle screen
   if (gameState.currentState === GameState.IDLE) {
     showPalmBackground();
+    startPeekingOnIdle();
   } else {
     hidePalmBackground();
+    stopPeeking();
   }
 
   switch (gameState.currentState) {

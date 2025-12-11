@@ -476,6 +476,112 @@ h2 {
   padding: 20px;
 }
 
+/* Peeking Animal Easter Egg */
+.peeking-animal {
+  position: fixed;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.peeking-animal.visible {
+  opacity: 1;
+}
+
+.animal-sprite {
+  font-size: 3rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Edge positions */
+.peeking-animal.from-left {
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.peeking-animal.from-left .animal-sprite {
+  animation: peek-from-left 2s ease-in-out forwards;
+}
+
+.peeking-animal.from-right {
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.peeking-animal.from-right .animal-sprite {
+  animation: peek-from-right 2s ease-in-out forwards;
+}
+
+.peeking-animal.from-bottom {
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.peeking-animal.from-bottom .animal-sprite {
+  animation: peek-from-bottom 2s ease-in-out forwards;
+}
+
+.peeking-animal.from-bottom-left {
+  bottom: 20px;
+  left: -10px;
+}
+
+.peeking-animal.from-bottom-left .animal-sprite {
+  animation: peek-from-left 2s ease-in-out forwards;
+}
+
+.peeking-animal.from-bottom-right {
+  bottom: 20px;
+  right: -10px;
+}
+
+.peeking-animal.from-bottom-right .animal-sprite {
+  animation: peek-from-right 2s ease-in-out forwards;
+}
+
+@keyframes peek-from-left {
+  0% {
+    transform: translateX(-100%);
+  }
+  20%,
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes peek-from-right {
+  0% {
+    transform: translateX(100%);
+  }
+  20%,
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes peek-from-bottom {
+  0% {
+    transform: translateY(100%);
+  }
+  20%,
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
 @media (max-width: 480px) {
   h1 {
     font-size: 2.5rem;
