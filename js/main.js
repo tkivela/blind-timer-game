@@ -129,6 +129,15 @@ function handleBackToMenu() {
   render();
 }
 
+function handleQuitGame() {
+  // Stop any running timer/indicator
+  stopChaosIndicator();
+  timer.stop();
+  // Reset to main menu without saving score
+  gameState = resetGame(gameState);
+  render();
+}
+
 function handleShowHiScores() {
   updateHiScores(loadHiScores());
   showHiScoresScreen();
@@ -197,6 +206,17 @@ function init() {
   document
     .getElementById("btn-save-score")
     .addEventListener("click", handleSaveScore);
+
+  // Quit buttons on gameplay screens
+  document
+    .getElementById("btn-quit-ready")
+    .addEventListener("click", handleQuitGame);
+  document
+    .getElementById("btn-quit-running")
+    .addEventListener("click", handleQuitGame);
+  document
+    .getElementById("btn-quit-result")
+    .addEventListener("click", handleQuitGame);
 
   document.addEventListener("keydown", handleKeyDown);
 
