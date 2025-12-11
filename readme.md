@@ -2,6 +2,8 @@
 
 A browser-based timing game where players try to stop an invisible timer as close to a target time as possible.
 
+**[Play the game here!](https://tkivela.github.io/blind-timer-game/)**
+
 ## How to Play
 
 1. Each round shows a random target time (e.g., "5.3 seconds")
